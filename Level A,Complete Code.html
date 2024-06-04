@@ -3,205 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateTech - Your Destination for Tech Enthusiasts</title>
+    <title>Attractive Navigation Bar</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .navbar .logo {
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: bold;
+        }
+        .navbar ul {
+            list-style-type: none;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .navbar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: white;
+            }
+        }
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;  }
+  
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: calc(23% - 30px);
+            flex: 1 1 calc(33% - 40px);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .product-card:hover {
+            
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        }
+        .product-info {
+            padding: 5px;
+            text-align: center;
+        }
+        .product-info h3 {
+            margin: 10px 0;
+            font-size: 22px;
             color: #333;
         }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+        .product-info p {
+            color: #666;
+            font-size: 16px;
+            margin: 10px 0;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .product-info .price {
+            font-size: 24px;
+            color: #e74c3c;
+            margin: 10px 0;
         }
-
-        nav {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background-color: #555;
-            transition: background-color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background-color: #777;
-        }
-
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Form Styles */
-        form {
-            display: inline-block;
-            border: 2px solid #555;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        form input {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        form button {
-            width: calc(100% - 40px);
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
+        .product-info button {
+            background-color: #e74c3c;
+            color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-
-        form button:hover {
-            background-color: #555;
-        }
-
-        /* Product Catalog Styles */
-        .product {
-            display: inline-block;
-            width: 200px;
-            margin: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-        }
-
-        .product img {
-            width: 100%;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .product .info {
-            padding: 10px;
-            text-align: left;
-        }
-
-        .product h3 {
-            margin-top: 0;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .product p {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .product-info button:hover {
+            background-color: #c0392b;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>InnovateTech</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="Level A,Complete Code.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRORVCyEa-d4WXINMDL0tNobhur2_tcRZyvHw&s" float="right" width="30px"height="30px"></a></li>
-                <li><a href="home page.html"target="_self">Home</a></li>
-                <li><a href="Product Page.html"target="_self">Products</a></li>
-                <li><a href="about us.html"target="_self">About Us</a></li>
-                <li><a href="Contact page.html"target="_self">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="logo"><a href="#home" style="text-decoration: none; color:white">Innovate Tech</a></div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="product page.html">Products</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Contact page.html">Contact</a></li>
+            <li><a href="login.html">Signup/Login</a></li>
+        </ul>
+    </nav>
+    </br>
+    <a href="product page.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ6hFTQDxyduHK6mVOOtxUf2MZQc31DYdBKHOi2cLSaO0JIO4YFYj_VKjQ-Wfii1B4TZU&usqp=CAU"width="100%"height="150px%"></a>
 
-    <main>
-        <h2>Login / Register </h2>
-        <form id="loginForm">
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Signup</button>
-            <!-- <button type="submit">SIGNUP</button> -->
-        </form>
-
-        <div class="product">
-            <a href="Product Page.html"><img src="data:image/jpeg;base64,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" alt="Product 1"></a>
-            <div class="info">
-                <h3>ASUS Laptop</h3>
-                <p><b>Product Details</b><br>
-                     -Aspect Ratio:16:9</br>
-                </p>
-                <p><b>Price:</b> Rs.80,000</p>
+    <div class="container">
+        <h1 style="text-align: center;">Top Selling Electronics</h1>
+        <div class="products">
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/4c41012d-d84e-426e-8682-aec907fad2f5.jpg" alt="Laptop">
+                <div class="product-info">
+                    <h3>High-End Laptops</h3>
+                    <p>- Powerful laptop for professionals.<br>
+                        - Powerful laptop for Students.<br>
+                        - Powerful laptop for Freelancers.<br>
+                    </p>
+                <p class="price">Rs.69,999</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/edd34581-86ff-4b32-8b35-4eef57f4e8dc.jpg" alt="Smartphone">
+                <div class="product-info">
+                    <h3>Latest Smartphones</h3>
+                    <p> -Stay connected with the latest tech.<br>
+                        -Shop best smartphones   <br>
+                         </p>
+                    <p class="price">Rs.24,999</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/768881b8-54cd-49e6-854d-08f8f8702589.jpg" alt="Tablet">
+                <div class="product-info">
+                    <h3>Modern Tablets</h3>
+                    <p>-Stay connected with the latest tech.</br>
+                        -Lightweight and powerful.<br>
+                      </p>
+                    <p class="price">Rs.19,999</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/c30829e0-79db-4e84-87ad-4b484611da3c.jpg" alt="Smartwatch">
+                <div class="product-info">
+                    <h3>Smartwatchs</h3>
+                    <p>Keep track of your health and notifications.</p>
+                    <p class="price">Rs.999</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/ff68a170-1290-4fef-8a5c-4e0d75dc108b.jpg" alt="Headphones">
+                <div class="product-info">
+                    <h3>Noise Cancelling Headphones</h3>
+                    <p>Immersive sound experience.</p>
+                    <p class="price">Rs.599</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://im.runware.ai/image/ws/0.5/ii/92da2d5e-0aac-494e-9aa0-08c8336b2b0c.jpg" alt="Smartphone">
+                <div class="product-info">
+                    <h3>Latest Desktops</h3>
+                    <p>Stay connected with the latest tech.</p>
+                    <p class="price">Rs.89,999</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.gV2cOvGrpdqCPHfU1HaS6AHaHo?pid=ImgDet&w=202&h=208&c=7&dpr=1.1" alt="Tablet">
+                <div class="product-info">
+                    <h3>Modern Keyboards</h3>
+                    <p>-Lightweight and powerful.<br>
+                        -Lightweight and powerful.<br></p>
+                    <p class="price">Rs.499</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.YBwWtUCkDRajSzxAITfXbAHaHa?pid=ImgDet&w=202&h=202&c=7&dpr=1.1" alt="Tablet">
+                <div class="product-info">
+                    <h3>Modern Mice</h3>
+                    <p>Lightweight and powerful.</p>
+                    <p class="price">Rs.499</p>
+                    <button>Add to Cart</button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="product">
-            <a href="Product Page.html" ><img src=" https://bl-i.thgim.com/public/incoming/fk5hrs/article67097604.ece/alternates/FREE_1200/MacBookAir%2015inch_5.JPG" alt="Product 2"></a>
-            <div class="info">
-                <h3>Apple MacBook Air</h3>
-                <p><b>Product Details:</b><br>
-                    -Stylish Light Laptop</br>
-                </p>
-                <p> <b>Price :</b>Rs.70,000
-                     </p>
-            </div>
-        </div>
-
-        <!-- Add more products as needed -->
-
-    </main>
-
-    <footer>
-        <p>&copy; 2024 InnovateTech. All rights reserved.</p>
-    </footer>
+    <script>
+        function toggleMenu() {
+            var navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            } else {
+                navMenu.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
